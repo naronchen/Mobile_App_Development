@@ -1,6 +1,5 @@
 # todo_App
-A simple to do app developed via Kotlin
----------------------------------------
+
 App Features:
 Add task to list
 Remove task from list
