@@ -1,9 +1,7 @@
-# todo_App
-App Features:
-----------------
-Add task to list
-Remove task from list
-Save list of tasks to file
+App Features: \n
+Add task to list\n
+Remove task from list\n
+Save list of tasks to file\n
 Edit tasks on list
 
 
