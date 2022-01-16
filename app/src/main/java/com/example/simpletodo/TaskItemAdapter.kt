@@ -9,13 +9,16 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 // Tel RecycleView how to display the data
-class TaskItemAdapter(private val listOfItems: List<String>, val longClickListener: OnLongClickListener) :
+class TaskItemAdapter(private val listOfItems: List<String>, val longClickListener: OnLongClickListener, val ClickListener: OnClickListener) :
     RecyclerView.Adapter<TaskItemAdapter.ViewHolder>() {
 
     interface OnLongClickListener{
         fun onItemLongClicked(position: Int)
     }
 
+    interface OnClickListener{
+        fun onItemClicked(position: Int)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskItemAdapter.ViewHolder {
         val context = parent.context
@@ -50,6 +53,12 @@ class TaskItemAdapter(private val listOfItems: List<String>, val longClickListen
                 longClickListener.onItemLongClicked(adapterPosition)
                 true
             }
+
+            itemView.setOnClickListener{
+                ClickListener.onItemClicked(adapterPosition)
+                true
+            }
+
         }
 
     }

@@ -1,5 +1,6 @@
 package com.example.simpletodo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,8 +14,8 @@ import java.io.File
 import java.io.IOException
 import java.nio.charset.Charset
 
-class MainActivity : AppCompatActivity() {
 
+class MainActivity : AppCompatActivity() {
 
     var listOfTasks = mutableListOf<String>()
     lateinit var adapter: TaskItemAdapter
@@ -34,7 +35,14 @@ class MainActivity : AppCompatActivity() {
 
                 saveItem()
             }
+        }
 
+        val onClickListener = object : TaskItemAdapter.OnClickListener {
+            override fun onItemClicked(position: Int) {
+                Log.i("Naron", "Hi from MainActivity onItemClicked")
+                val i = Intent(this@MainActivity, EditActivity::class.java)
+                startActivity(i) // bring EditActivity
+            }
         }
 
 //        listOfTasks.add("ReDo Laundry")
@@ -43,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         //look up recyclerView in layout
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         //create adapter passing the sample user data
-        adapter = TaskItemAdapter(listOfTasks, onLongClickListener)
+        adapter = TaskItemAdapter(listOfTasks, onLongClickListener, onClickListener)
         //Attach the adapter to the recyclerview to populate items
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager( this)
