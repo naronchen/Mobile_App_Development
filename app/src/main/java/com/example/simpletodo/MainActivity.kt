@@ -38,19 +38,28 @@ class MainActivity : AppCompatActivity() {
         }
 
         val onClickListener = object : TaskItemAdapter.OnClickListener {
+            val REQUEST_CODE = 20
             override fun onItemClicked(position: Int) {
-                Log.i("Naron", "Hi from MainActivity onItemClicked")
+//              Log.i("Naron", "Hi from MainActivity onItemClicked")
                 val i = Intent(this@MainActivity, EditActivity::class.java)
-                startActivity(i) // bring EditActivity
+                i.putExtra("thisText", listOfTasks[position])
+                i.putExtra("position", position)
+                startActivityForResult(i, REQUEST_CODE) // bring EditActivity
+
             }
+
         }
+
+
+
+
 
 //        listOfTasks.add("ReDo Laundry")
 //        listOfTasks.add("Go for a walk")
         loadItem()
         //look up recyclerView in layout
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        //create adapter passing the sample user data
+        //create adapter passing the  data
         adapter = TaskItemAdapter(listOfTasks, onLongClickListener, onClickListener)
         //Attach the adapter to the recyclerview to populate items
         recyclerView.adapter = adapter
@@ -74,7 +83,24 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        // REQUEST_CODE is defined above
+            Log.i("Naron", "Helloooooo")
+            // Extract name value from result extras
+            val edited = data?.getExtras()?.getString("userInput")
+            // Toast the name to display temporarily on screen
+            val pos = data?.extras?.getInt("position")?.toInt()
+            if (edited != null) {
+                if (pos != null) {
+                    listOfTasks.set(pos, edited)
+                    adapter.notifyItemChanged(pos)
+                    saveItem()
+                }
+            }
 
+
+    }
 
     // Save the data that user has inputted
     // save by reading/writing into a file
