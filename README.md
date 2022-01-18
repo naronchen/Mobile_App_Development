@@ -44,7 +44,7 @@ Doing the editing functionality was a little harder than previous few tasks by u
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [todo_app] 
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
