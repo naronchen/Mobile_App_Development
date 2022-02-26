@@ -26,7 +26,7 @@ The following **required** functionality is completed:
 * [ ] User can **tap a todo item in the list and bring up an edit screen for the todo item** and then have any changes to the text reflected in the todo list
 
 ## GIF Walkthrough
-<img src=https://i.imgur.com/PdhKoMo.gifv width=250><br>
+<img src=https://user-images.githubusercontent.com/72578270/155827680-922c0906-0539-49cd-8606-af768bf36dfa.gif width=250><br>
 ## Notes
 
 This is my first time using Kotlin to build an app, I learned a lot of new things about this new programming language
