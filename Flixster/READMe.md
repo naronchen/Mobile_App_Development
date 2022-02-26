@@ -15,7 +15,8 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
    - [ ] In landscape mode, the rotated alternate layout should use the backdrop image instead and show the title and movie overview to the right of it.
 
 ### App Walkthough GIF
-[GIF WalkThrough Flixster_App](https://user-images.githubusercontent.com/72578270/155826952-65c88641-d47e-4615-a5a0-7f9543c707e0.gif)
+<img src=https://user-images.githubusercontent.com/72578270/155827255-cb3bdd45-9240-4120-a6f6-301118edf478.gif
+ width=250><br>
 
 <img src="YOUR_GIF_URL_HERE" width=250><br>
 
